@@ -94,6 +94,11 @@ class TestAPI
     puts parsed_order
   end
 
+  def test_initial_setup
+    apicfg = API::APIConfig.new(@config_filename)
+    apicfg.initial_setup
+  end
+
   def run_all_tests
     test_config
     test_nonce
@@ -138,6 +143,7 @@ test_order = TestOrder.new
 
 test_api = TestAPI.new(CONFIG_FILENAME)
 #test_api.run_all_tests
+test_api.test_initial_setup
 
 test_app = TestApp.new(CONFIG_FILENAME)
-test_app.run_all_tests
+#test_app.run_all_tests

@@ -11,6 +11,7 @@ module App
     def initialize(config_filename)
       @config_filename = config_filename
       @api = API::BitfinexREST.new(@config_filename)
+      @apicfg = API::APIConfig.new(@config_filename)
     end
 
     def show_my_orders
@@ -76,6 +77,7 @@ module App
       puts 'GM! This is a simple ruby app to work with orders @ Bitfinex'
       puts 'enter 1 to show current open orders'
       puts 'enter 2 to submit new order'
+      puts 'enter 3 to add API keys to config'
       user_input = gets
       case user_input.to_i
       when 1
@@ -84,6 +86,9 @@ module App
       when 2
         puts 'creating a new order'
         submit_order
+      when 3
+        puts 'adding API keys to config'
+        @apicfg.initial_setup
       else
         puts 'wrong input'
       end

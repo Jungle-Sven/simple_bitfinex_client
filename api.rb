@@ -18,6 +18,16 @@ module API
       File.write(@filename, [api_key, api_secret].to_yaml)
     end
 
+    def initial_setup
+      puts 'This is initial setup.'
+      puts 'Enter API key'
+      api_key = gets.strip
+      puts 'Enter API secret'
+      api_secret = gets.strip
+      write_cfg(api_key, api_secret)
+      puts 'Config file updated.'
+    end
+
     def read_config
       api_key, api_secret = YAML.load_file(@filename)
     end
@@ -102,15 +112,4 @@ module API
       end
     end
   end
-end
-
-
-
-if __FILE__ == $0
-  #use this to write API keys to config file
-  app = API::APIConfig.new("cfg.yaml")
-  api_key = ''
-  api_secret = ''
-  app.write_cfg(api_key, api_secret)
-  puts 'api keys added to cfg.yaml'
 end
