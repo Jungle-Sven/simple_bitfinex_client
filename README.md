@@ -6,15 +6,16 @@ This is an API connector to Bitfinex exchange written in Ruby!
 
 App enables user to view user's open orders and to post new orders to exchange.
 
-Usage:
-To use it add your api keys to api.rb file, lines 112-113, and run command "ruby api.rb" to write api keys to config file
+Launch:
+Run command "ruby app.rb" to use the app.
+
+API keys:
+Launch App and enter 3 to add API keys to config file via App interface
 OR
 add api keys to "cfg.yaml" manually.
 Format:
 - apikey
 - apisecret
 
-
-Then run command "ruby app.rb" to use the app.
-
+Tests:
 Run command "ruby tests.rb" to run tests.
